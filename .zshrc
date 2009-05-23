@@ -7,6 +7,7 @@ zstyle ':completion:*:default' list-colors ''  # default ls colors
 zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'r:|[._-]=** r:|=**'
 zstyle ':completion:*' max-errors 3
 zstyle ':completion:*' substitute 1
+zstyle ':completion:*' menu select
 zstyle :compinstall filename '/home/eevee/.zshrc'
 
 autoload -Uz compinit
@@ -36,7 +37,6 @@ RPROMPT="$RPROMPT_code$RPROMPT_jobs$RPROMPT_time"
 # Tab completion
 setopt complete_in_word     # mid-word tab completion
 setopt correct              # fix typo'd command names
-setopt menu_complete        # start iterating through completions immediately
 
 # Make ls useful regardless of platform
 LSOPTS='-laF'  # long mode, show all, use suffix squiggles
@@ -99,7 +99,9 @@ bindkey "\eOF" end-of-line
 # for freebsd console
 bindkey "\e[H" beginning-of-line
 bindkey "\e[F" end-of-line
-bindkey '^i' expand-or-complete
+
+bindkey '^i' menu-expand-or-complete    # tab to do menu
+bindkey "\e[Z" reverse-menu-complete    # shift-tab to reverse menu
 
 # Machine-specific stuff
 if [[ -r $HOME/.zlocal ]]; then
