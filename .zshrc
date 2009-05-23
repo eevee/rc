@@ -38,6 +38,22 @@ setopt complete_in_word     # mid-word tab completion
 setopt correct              # fix typo'd command names
 setopt menu_complete        # start iterating through completions immediately
 
+# Make ls useful regardless of platform
+LSOPTS='-laF'  # long mode, show all, use suffix squiggles
+LLOPTS=''
+case $(uname -s) in
+    FreeBSD)
+        LSOPTS="${LSOPTS}G"
+        ;;
+    Linux)
+        eval "$(dircolors -b)"
+        LSOPTS="$LSOPTS --color=auto"
+        LLOPTS="$LLOPTS --color=always"  # so | less is colored
+        ;;
+esac
+alias ls="ls $LSOPTS"
+alias ll="ls $LLOPTS | less"
+
 # screen stuff
 function title {
     # xterm title, screen title
