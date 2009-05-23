@@ -52,7 +52,7 @@ case $(uname -s) in
         ;;
 esac
 alias ls="ls $LSOPTS"
-alias ll="ls $LLOPTS | less"
+alias ll="ls $LLOPTS | less -FX"
 
 # screen stuff
 function title {
