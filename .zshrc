@@ -61,7 +61,7 @@ function title {
     if [[ $TERM == "screen"* ]]; then
         print -n "\ek$prefix$1\e\\"
     fi
-    if [[ $TERM == "xterm"* ]]; then
+    if [[ $TERM == "xterm"* || $TERM == "screen"* ]]; then
         print -n "\e]0;$prefix$2\a"
     fi
 }
