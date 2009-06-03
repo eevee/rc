@@ -56,10 +56,13 @@ alias ll="ls $LLOPTS | less -FX"
 
 # screen stuff
 function title {
-    # xterm title, screen title
+    # screen title, xterm title
+    local prefix; prefix="${USER}@${HOST}: "
     if [[ $TERM == "screen"* ]]; then
-        print -nR $'\033k'$1$'\033\\'
-        print -nR $'\033]0;'$2$'\a'
+        print -n "\ek$prefix$1\e\\"
+    fi
+    if [[ $TERM == "xterm"* ]]; then
+        print -n "\e]0;$prefix$2\a"
     fi
 }
 
