@@ -9,6 +9,7 @@ include "/usr/share/X11/locale/en_US.UTF-8/Compose"
 <Multi_key> <less> <3>                      : "♡" U2661
 <Multi_key> <o> <slash> <grave>             : "♪" U266a
 <Multi_key> <bracketleft> <bracketright>    : "☑" U2611
+<Multi_key> <period> <period>               : "…" U2026
 
 
 # MATH
