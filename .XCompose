@@ -1,0 +1,29 @@
+include "/usr/share/X11/locale/en_US.UTF-8/Compose"
+
+# Misc goofy stuff
+<Multi_key> <colon> <parenleft>             : "☹" U2639
+<Multi_key> <colon> <parenright>            : "☺" U263a
+<Multi_key> <parenleft> <colon>             : "☻" U263b
+<Multi_key> <minus> <less>                  : "←" U2190
+<Multi_key> <minus> <greater>               : "→" U2192
+<Multi_key> <less> <3>                      : "♡" U2661
+<Multi_key> <o> <slash> <grave>             : "♪" U266a
+<Multi_key> <bracketleft> <bracketright>    : "☑" U2611
+
+
+# MATH
+<Multi_key> <tilde> <tilde>                 : "≈" U2248
+<Multi_key> <equal> <tilde>                 : "≈" U2248
+<Multi_key> <tilde> <equal>                 : "≈" U2248
+<Multi_key> <slash> <equal>                 : "≠" U2248
+<Multi_key> <equal> <slash>                 : "≠" U2248
+<Multi_key> <equal> <equal>                 : "≡" U2261
+<Multi_key> <parenleft> <equal>             : "∈" U2208
+<Multi_key> <parenleft> <slash> <equal>     : "∉" U2209
+<Multi_key> <minus> <slash>                 : "√" U221a
+<Multi_key> <minus> <3> <slash>             : "∛" U221b
+<Multi_key> <minus> <4> <slash>             : "∜" U221c
+<Multi_key> <minus> <4> <slash>             : "∜" U221c
+<Multi_key> <1> <slash> <0>                 : "∞" U221e
+<Multi_key> <period> <colon>                : "∴" U2234
+<Multi_key> <slash> <greater>               : "∆" U2206
