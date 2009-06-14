@@ -1,4 +1,4 @@
-include "/usr/share/X11/locale/en_US.UTF-8/Compose"
+include "%L"
 
 # Misc goofy stuff
 <Multi_key> <colon> <parenleft>             : "☹" U2639
