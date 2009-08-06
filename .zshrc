@@ -1,13 +1,35 @@
-# The following lines were added by compinstall
+autoload colors; colors
 
-zstyle ':completion:*' completer _expand _complete _ignored _match _correct _approximate _prefix
-zstyle ':completion:*' completions 1
-zstyle ':completion:*' glob 1
-zstyle ':completion:*:default' list-colors ''  # default ls colors
+### Tab completion
+
+# Force a reload of completion system if nothing matched; this fixes installing
+# a program and then trying to tab-complete its name
+_force_rehash() {
+    (( CURRENT == 1 )) && rehash
+    return 1    # Because we didn't really complete anything
+}
+
+# Always use menu completion, and make the colors pretty!
+zstyle ':completion:*' menu select yes
+zstyle ':completion:*:default' list-colors ''
+
+# Completers to use: rehash, general completion, then various magic stuff and
+# spell-checking.  Only allow two errors when correcting
+zstyle ':completion:*' completer _force_rehash _complete _ignored _match _correct _approximate _prefix
+zstyle ':completion:*' max-errors 2
+
+# When looking for matches, first try exact matches, then case-insensiive, then
+# partial word completion
 zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'r:|[._-]=** r:|=**'
-zstyle ':completion:*' max-errors 3
-zstyle ':completion:*' substitute 1
-zstyle ':completion:*' menu select
+
+# Turn on caching, which helps with e.g. apt
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path ~/.zsh/cache
+
+# Show titles for completion types and group by type
+zstyle ':completion:*:descriptions' format "$fg_bold[black]» %d$reset_color"
+zstyle ':completion:*' group-name ''
+
 zstyle :compinstall filename '/home/eevee/.zshrc'
 
 autoload -Uz compinit
