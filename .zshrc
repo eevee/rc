@@ -59,6 +59,8 @@ RPROMPT="$RPROMPT_code$RPROMPT_jobs$RPROMPT_time"
 
 ### Misc aliases
 
+alias apt='sudo aptitude'
+
 # Don't glob with find or wget
 for command in find wget; \
     alias $command="noglob $command"
