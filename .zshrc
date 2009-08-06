@@ -32,35 +32,33 @@ zstyle ':completion:*' group-name ''
 
 zstyle :compinstall filename '/home/eevee/.zshrc'
 
+# Always do mid-word tab completion
+setopt complete_in_word
+
 autoload -Uz compinit
 compinit
-# End of lines added by compinstall
-# Lines configured by zsh-newuser-install
+
+
+### History
+
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
 setopt appendhistory autocd beep nomatch
 unsetopt extendedglob notify
-bindkey -v
-# End of lines configured by zsh-newuser-install
 
-### Eevee stuff
 
-autoload colors; colors
+### Prompt
 
-# Pimpin' prompt
-# and by pimpin' I mean "like ubuntu"
 PROMPT="%{$fg_bold[green]%}%n@%m%{$reset_color%} %{$fg_bold[blue]%}%~%{$reset_color%} %(!.#.$) "
 RPROMPT_code="%(?..\$? %{$fg_no_bold[red]%}%?%{$reset_color%}  )"
 RPROMPT_jobs="%1(j.%%# %{$fg_no_bold[cyan]%}%j%{$reset_color%}  .)"
 RPROMPT_time="%{$fg_bold[black]%}%*%{$reset_color%}"
 RPROMPT="$RPROMPT_code$RPROMPT_jobs$RPROMPT_time"
 
-# Tab completion
-setopt complete_in_word     # mid-word tab completion
-setopt correct              # fix typo'd command names
 
-# Make ls useful regardless of platform
+### ls
+
 LSOPTS='-laF'  # long mode, show all, use suffix squiggles
 LLOPTS=''
 case $(uname -s) in
@@ -76,7 +74,9 @@ esac
 alias ls="ls $LSOPTS"
 alias ll="ls $LLOPTS | less -FX"
 
-# screen stuff
+
+### screen
+
 function title {
     # screen title, xterm title
     local prefix; prefix="${USER}@${HOST}: "
@@ -99,7 +99,11 @@ function preexec {
     title "$cmd[1]:t" "$cmd[2,-1]"
 }
 
-# Useful fucking keybindings goddamn
+
+### Keybindings
+
+bindkey -v
+
 # Taken from http://wiki.archlinux.org/index.php/Zsh and Ubuntu's inputrc
 bindkey "\e[1~" beginning-of-line
 bindkey "\e[4~" end-of-line
@@ -125,10 +129,12 @@ bindkey "\eOF" end-of-line
 bindkey "\e[H" beginning-of-line
 bindkey "\e[F" end-of-line
 
-bindkey '^i' menu-expand-or-complete    # tab to do menu
+bindkey '^i' complete-word              # tab to do menu
 bindkey "\e[Z" reverse-menu-complete    # shift-tab to reverse menu
 
-# Machine-specific stuff
+
+### Machine-specific extras
+
 if [[ -r $HOME/.zlocal ]]; then
     source $HOME/.zlocal
 fi
