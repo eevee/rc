@@ -57,6 +57,13 @@ RPROMPT_time="%{$fg_bold[black]%}%*%{$reset_color%}"
 RPROMPT="$RPROMPT_code$RPROMPT_jobs$RPROMPT_time"
 
 
+### Misc aliases
+
+# Don't glob with find or wget
+for command in find wget; \
+    alias $command="noglob $command"
+
+
 ### ls
 
 LSOPTS='-laF'  # long mode, show all, use suffix squiggles
