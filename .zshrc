@@ -69,6 +69,10 @@ case $(uname -s) in
         eval "$(dircolors -b)"
         LSOPTS="$LSOPTS --color=auto"
         LLOPTS="$LLOPTS --color=always"  # so | less is colored
+
+        # Just loaded new ls colors via dircolors, so change completion colors
+        # to match
+        zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
         ;;
 esac
 alias ls="ls $LSOPTS"
