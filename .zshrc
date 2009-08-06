@@ -106,7 +106,7 @@ function preexec {
 
 ### Keybindings
 
-bindkey -v
+bindkey -e
 
 # Taken from http://wiki.archlinux.org/index.php/Zsh and Ubuntu's inputrc
 bindkey "\e[1~" beginning-of-line
