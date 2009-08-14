@@ -69,6 +69,14 @@ if has("autocmd")
     \ endif
 endif " has("autocmd")
 
+" screen title and mouse
+if &term == "screen"
+  set titlestring=vim\ %t
+  set t_ts=^[k
+  set t_fs=^[\
+endif
+set title
+
 " Template Toolkit detection...  which is broken...
 "au BufNewFile,BufRead *.tt setf tt2html
 "let b:tt2_syn_tags = '\[% %]'
