@@ -77,7 +77,10 @@ if &term == "screen"
 endif
 set title
 
-" Template Toolkit detection...  which is broken...
-"au BufNewFile,BufRead *.tt setf tt2html
-"let b:tt2_syn_tags = '\[% %]'
+" template detection
+" Template Toolkit
+au BufNewFile,BufRead *.tt setf tt2html
+let b:tt2_syn_tags = '\[% %]'
+" Mako
+au BufNewFile,BufRead *.mako setf mako
 
