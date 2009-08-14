@@ -30,10 +30,6 @@ set mouse=a                     " terminal mouse when possible
 set guifont=Monaco\ 9,DejaVu\ Sans\ Mono\ 10
                                 " nice fixedwidth font
 
-" trailing whitespace
-hi WhiteSpaceEOL ctermbg=red
-match WhiteSpaceEOL /\s\+\%#\@!$/
-
 " unicode
 set encoding=utf-8              " best default encoding
 setglobal fileencoding=utf-8    " ...
@@ -54,6 +50,11 @@ endif
 " color
 set t_Co=256
 colorscheme molokai
+
+" trailing whitespace; must define AFTER colorscheme!
+hi WhitespaceEOL ctermbg=red guibg=red
+match WhitespaceEOL /\s\+\%#\@<!$/
+
 
 if has("autocmd")
   " Filetypes and indenting settings
