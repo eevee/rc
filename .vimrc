@@ -74,8 +74,8 @@ endif " has("autocmd")
 " screen title and mouse
 if &term == "screen"
   set titlestring=vim\ %t
-  set t_ts=^[k
-  set t_fs=^[\
+  set t_ts=k
+  set t_fs=\
 endif
 set title
 
