@@ -40,11 +40,14 @@ compinit
 
 
 ### History
+setopt extended_history hist_no_store hist_ignore_dups inc_append_history
+export HISTFILE=~/.zsh_history
+export HISTSIZE=2000
+export SAVEHIST=2000
 
-HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
-setopt appendhistory autocd beep nomatch
+
+### Some..  options
+setopt autocd beep nomatch
 unsetopt extendedglob notify
 
 
