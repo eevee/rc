@@ -3,6 +3,17 @@
 " vim mode preferred!
 set nocompatible
 
+" if we're in screen, vim doesn't know wtf it's doing with a lot of keycodes.
+" so tell it we're in xterm, instead.  also, tweak title so it will change the
+" screen window's title to something minimal and useful
+if &term == "screen"
+  set term=xterm
+  set titlestring=vim\ %t
+  set t_ts=k
+  set t_fs=\
+endif
+set title
+
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
@@ -70,14 +81,6 @@ if has("autocmd")
     \   exe "normal g`\"" |
     \ endif
 endif " has("autocmd")
-
-" screen title and mouse
-if &term == "screen"
-  set titlestring=vim\ %t
-  set t_ts=k
-  set t_fs=\
-endif
-set title
 
 " template detection
 " Template Toolkit
