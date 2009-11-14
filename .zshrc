@@ -47,8 +47,8 @@ export SAVEHIST=2000
 
 
 ### Some..  options
-setopt autocd beep nomatch
-unsetopt extendedglob notify
+setopt autocd beep extendedglob nomatch
+unsetopt notify
 
 
 ### Prompt
