@@ -39,7 +39,7 @@ set fileformats=unix,dos        " unix linebreaks in new files please
 " gui stuff
 set ttymouse=xterm2             " force mouse support for screen
 set mouse=a                     " terminal mouse when possible
-set guifont=Monaco\ 9,DejaVu\ Sans\ Mono\ 10
+set guifont=DejaVu\ Sans\ Mono\ 9
                                 " nice fixedwidth font
 
 " unicode
