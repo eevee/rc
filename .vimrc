@@ -70,10 +70,6 @@ endif
 set t_Co=256
 colorscheme molokai
 
-" trailing whitespace; must define AFTER colorscheme!
-hi WhitespaceEOL ctermbg=red guibg=red
-match WhitespaceEOL /\s\+\%#\@<!$/
-
 
 if has("autocmd")
   " Filetypes and indenting settings
@@ -96,3 +92,7 @@ let b:tt2_syn_tags = '\[% %]'
 " Mako
 au BufNewFile,BufRead *.mako setf mako
 
+
+" trailing whitespace; must define AFTER colorscheme, setf, etc!
+hi WhitespaceEOL ctermbg=red guibg=red
+match WhitespaceEOL /\s\+\%#\@<!$/
