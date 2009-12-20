@@ -49,6 +49,13 @@ set nobomb                      " do not write utf-8 BOM!
 set fileencodings=ucs-bom,utf-8,iso-8859-1
                                 " order to detect Unicodeyness
 
+" tab completion
+set wildmenu                    " show a menu of completions like zsh
+set wildmode=full               " complete longest common prefix first
+
+" miscellany
+set scrolloff=2                 " always have 2 lines of context on the screen
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " slightly more complicated settings
 
