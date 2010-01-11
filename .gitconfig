@@ -1,0 +1,33 @@
+[user]
+    name = Eevee
+    email = git@veekun.com
+
+[color]
+    ui = true
+    branch = auto
+    diff = auto
+    status = auto
+[color "branch"]
+    current = yellow reverse
+    local = yellow
+    remote = green
+[color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+[color "status"]
+    added = yellow
+    changed = green
+    untracked = cyan
+
+[alias]
+    st = status
+    ci = commit
+    br = branch
+    co = checkout
+    df = diff
+[giggle]
+        compact-mode = false
+        main-window-maximized = false
+        main-window-geometry = 1611x851+0+0
