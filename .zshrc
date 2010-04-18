@@ -72,11 +72,11 @@ for command in find wget; \
 
 ### ls
 
-LSOPTS='-lavF'  # long mode, show all, natural sort, use suffix squiggles
+LSOPTS='-lAvF --si'  # long mode, show all, natural sort, type squiggles, friendly sizes
 LLOPTS=''
 case $(uname -s) in
     FreeBSD)
-        LSOPTS="${LSOPTS}G"
+        LSOPTS="${LSOPTS} -G"
         ;;
     Linux)
         eval "$(dircolors -b)"
