@@ -62,6 +62,7 @@ RPROMPT="$RPROMPT_code$RPROMPT_jobs$RPROMPT_time"
 
 ### Misc aliases
 
+alias ack=ack-grep
 alias apt='sudo aptitude'
 
 # Don't glob with find or wget
@@ -71,7 +72,7 @@ for command in find wget; \
 
 ### ls
 
-LSOPTS='-laF'  # long mode, show all, use suffix squiggles
+LSOPTS='-lavF'  # long mode, show all, natural sort, use suffix squiggles
 LLOPTS=''
 case $(uname -s) in
     FreeBSD)
@@ -138,7 +139,7 @@ function precmd {
     # Shorten homedir back to '~'
     local shortpwd=${PWD/$HOME/\~}
     title "zsh $shortpwd"
-}   
+}
 
 function preexec {
     title $*
