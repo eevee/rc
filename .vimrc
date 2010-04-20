@@ -56,9 +56,14 @@ set wildmode=full               " complete longest common prefix first
 " miscellany
 set scrolloff=2                 " always have 2 lines of context on the screen
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" slightly more complicated settings
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Bindings
+" Swaps selection with buffer
+vnoremap <C-X> <Esc>`.``gvP``P
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Colors and syntax
 " in GUI or color console, enable coloring and search highlighting
 if &t_Co > 2 || has("gui_running")
   syntax on
@@ -66,10 +71,8 @@ if &t_Co > 2 || has("gui_running")
   set hlsearch
 endif
 
-" color
-set t_Co=256
+set t_Co=256  " force 256 colors
 colorscheme molokai
-
 
 if has("autocmd")
   " Filetypes and indenting settings
@@ -91,7 +94,6 @@ au BufNewFile,BufRead *.tt setf tt2html
 let b:tt2_syn_tags = '\[% %]'
 " Mako
 au BufNewFile,BufRead *.mako setf mako
-
 
 " trailing whitespace; must define AFTER colorscheme, setf, etc!
 hi WhitespaceEOL ctermbg=red guibg=red
