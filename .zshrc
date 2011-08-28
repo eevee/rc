@@ -62,7 +62,7 @@ RPROMPT="$RPROMPT_code$RPROMPT_jobs$RPROMPT_time"
 
 ### Misc aliases
 
-if $(whence ack-grep); then
+if whence ack-grep &> /dev/null; then
     alias ack=ack-grep
 fi
 alias apt='sudo aptitude'
