@@ -150,6 +150,7 @@ function preexec {
 
 bindkey -e
 
+# General movement
 # Taken from http://wiki.archlinux.org/index.php/Zsh and Ubuntu's inputrc
 bindkey "\e[1~" beginning-of-line
 bindkey "\e[4~" end-of-line
@@ -175,8 +176,13 @@ bindkey "\eOF" end-of-line
 bindkey "\e[H" beginning-of-line
 bindkey "\e[F" end-of-line
 
+# Tab completion
 bindkey '^i' complete-word              # tab to do menu
 bindkey "\e[Z" reverse-menu-complete    # shift-tab to reverse menu
+
+# Up/down arrow: search history for first word
+bindkey "\e[A" up-line-or-search
+bindkey "\e[B" down-line-or-search
 
 
 ### Machine-specific extras
