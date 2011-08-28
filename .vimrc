@@ -34,6 +34,9 @@ set shiftwidth=4                " one tab = four spaces (autoindent)
 set softtabstop=4               " one tab = four spaces (tab key)
 set expandtab                   " never use hard tabs
 set fileformats=unix,dos        " unix linebreaks in new files please
+set listchars=tab:→·,extends:>,precedes:<,nbsp:␠,trail:␠
+                                " appearance of invisible characters
+
 
 " gui stuff
 set ttymouse=xterm2             " force mouse support for screen
