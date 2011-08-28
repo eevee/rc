@@ -100,3 +100,9 @@ au BufNewFile,BufRead *.mako setf mako
 " trailing whitespace; must define AFTER colorscheme, setf, etc!
 hi WhitespaceEOL ctermbg=red guibg=red
 match WhitespaceEOL /\s\+\%#\@<!$/
+
+
+" Last but not least, allow for local overrides
+if filereadable(expand("~/.vimrc.local"))
+    source ~/.vimrc.local
+endif
