@@ -6,9 +6,8 @@ set nocompatible
 " if we're in screen, vim doesn't know wtf it's doing with a lot of keycodes.
 " so tell it we're in xterm, instead.  also, tweak title so it will change the
 " screen window's title to something minimal and useful
-if &term == "screen"
-  set term=xterm
-  set titlestring=vim\ %t
+if &term =~ "^screen"
+  set titlestring=vim\ %{expand(\"%t\")}
   set t_ts=k
   set t_fs=\
 endif
