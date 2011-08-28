@@ -54,8 +54,8 @@ syn region makoAttributeValue containedin=makoTag contained start=/"/ skip=/\\"/
 syn region makoAttributeValue containedin=MakoTag contained start=/'/ skip=/\\'/ end=/'/
 
 " Tags
-syn region makoTag matchgroup=makoDelim start="<%\(def\|call\|page\|include\|namespace\|inherit\)\>" end="/\?>"
-syn match makoDelim "</%\(def\|call\|namespace\)>"
+syn region makoTag matchgroup=makoDelim start="<%\(def\|call\|page\|include\|namespace\|inherit\|\w\+:\w\+\)\>" end="/\?>"
+syn match makoDelim "</%\(def\|call\|namespace\|\w\+:\w\+\)>"
 
 " Newline Escapes
 syn match makoEscape /\\$/
