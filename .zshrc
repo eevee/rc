@@ -62,7 +62,9 @@ RPROMPT="$RPROMPT_code$RPROMPT_jobs$RPROMPT_time"
 
 ### Misc aliases
 
-alias ack=ack-grep
+if $(whence ack-grep); then
+    alias ack=ack-grep
+fi
 alias apt='sudo aptitude'
 
 # Don't glob with find or wget
