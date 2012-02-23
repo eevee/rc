@@ -56,7 +56,7 @@ WORDCHARS=${WORDCHARS//[&.;\/]}
 
 ### Prompt
 
-PROMPT="%{$fg_bold[green]%}%n@%m%{$reset_color%} %{$fg_bold[blue]%}%~%{$reset_color%} %(!.#.$) "
+PROMPT="%{$fg_bold[green]%}%n@%m%{$reset_color%} %{$fg_bold[blue]%}%~%{$reset_color%} %(!.☭.⚘) "
 RPROMPT_code="%(?..\$? %{$fg_no_bold[red]%}%?%{$reset_color%}  )"
 RPROMPT_jobs="%1(j.%%# %{$fg_no_bold[cyan]%}%j%{$reset_color%}  .)"
 RPROMPT_time="%{$fg_bold[black]%}%*%{$reset_color%}"
