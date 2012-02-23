@@ -50,6 +50,9 @@ export SAVEHIST=2000
 setopt autocd beep extendedglob nomatch
 unsetopt notify
 
+# Don't count common path separators as word characters
+WORDCHARS=${WORDCHARS//[&.;\/]}
+
 
 ### Prompt
 
