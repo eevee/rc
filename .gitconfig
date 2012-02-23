@@ -30,7 +30,7 @@
     br = branch
     co = checkout
     df = diff
-[giggle]
-    compact-mode = false
-    main-window-maximized = false
-    main-window-geometry = 1611x851+0+0
+    lg = log --oneline --graph --decorate
+
+[push]
+    default = current
