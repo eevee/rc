@@ -74,6 +74,9 @@ alias apt='sudo aptitude'
 for command in find wget; \
     alias $command="noglob $command"
 
+# rvm
+[[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
+
 
 ### ls
 
