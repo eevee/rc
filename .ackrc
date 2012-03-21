@@ -1,0 +1,9 @@
+# Sort the list of files before searching; slower, but deterministic and human-friendly
+--sort-files
+
+# If the given regex is all lowercase, ignore case; otherwise preserve it
+--smart-case
+
+# Pipe output into `less`, using the same defaults as git
+--pager
+less -RFSX
