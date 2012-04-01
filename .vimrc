@@ -90,13 +90,6 @@ if has("autocmd")
     \ endif
 endif " has("autocmd")
 
-" template detection
-" Template Toolkit
-au BufNewFile,BufRead *.tt setf tt2html
-let b:tt2_syn_tags = '\[% %]'
-" Mako
-au BufNewFile,BufRead *.mako setf mako
-
 " trailing whitespace; must define AFTER colorscheme, setf, etc!
 hi WhitespaceEOL ctermbg=red guibg=red
 match WhitespaceEOL /\s\+\%#\@<!$/
