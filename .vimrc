@@ -90,6 +90,10 @@ if has("autocmd")
     \ endif
 endif " has("autocmd")
 
+""" Syntax options for particular languages
+let python_highlight_all = 1
+let python_slow_sync = 1
+
 " trailing whitespace; must define AFTER colorscheme, setf, etc!
 hi WhitespaceEOL ctermbg=red guibg=red
 match WhitespaceEOL /\s\+\%#\@<!$/
