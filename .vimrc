@@ -54,6 +54,8 @@ set fileencodings=ucs-bom,utf-8,iso-8859-1
 " tab completion
 set wildmenu                    " show a menu of completions like zsh
 set wildmode=full               " complete longest common prefix first
+set wildignore+=.*.sw*,__pycache__,*.pyc
+                                " ignore junk files
 
 " miscellany
 set scrolloff=2                 " always have 2 lines of context on the screen

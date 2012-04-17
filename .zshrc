@@ -30,6 +30,9 @@ zstyle ':completion:*' cache-path ~/.zsh/cache
 zstyle ':completion:*:descriptions' format "$fg_bold[black]» %d$reset_color"
 zstyle ':completion:*' group-name ''
 
+# Ignore some common useless files
+zstyle ':completion:*:*:(^rm):*:*' ignored-patterns '*?.pyc' '__pycache__'
+
 zstyle :compinstall filename '/home/eevee/.zshrc'
 
 # Always do mid-word tab completion
