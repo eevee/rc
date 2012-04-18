@@ -31,7 +31,8 @@ zstyle ':completion:*:descriptions' format "$fg_bold[black]» %d$reset_color"
 zstyle ':completion:*' group-name ''
 
 # Ignore some common useless files
-zstyle ':completion:*:*:(^rm):*:*' ignored-patterns '*?.pyc' '__pycache__'
+zstyle ':completion:*' ignored-patterns '*?.pyc' '__pycache__'
+zstyle ':completion:*:*:rm:*:*' ignored-patterns
 
 zstyle :compinstall filename '/home/eevee/.zshrc'
 
