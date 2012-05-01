@@ -59,12 +59,29 @@ set wildignore+=.*.sw*,__pycache__,*.pyc
 
 " miscellany
 set scrolloff=2                 " always have 2 lines of context on the screen
+set foldmethod=indent           " auto-fold based on indentation.  (py-friendly)
+set foldlevel=99
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plugins
+" Pathogen; load all bundles
+filetype off  " uh, necessary
+call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Bindings
 " Swaps selection with buffer
 vnoremap <C-X> <Esc>`.``gvP``P
+
+" ctrl-arrow in normal mode to switch windows; overrides ctrl-left/right for
+" moving by words, but i tend to use those only in insert mode
+noremap <C-Left> <C-W><Left>
+noremap <C-Right> <C-W><Right>
+noremap <C-Up> <C-W><Up>
+noremap <C-Down> <C-W><Down>
 
 " -/= to navigate tabs
 noremap - :tabprevious<CR>
@@ -81,6 +98,11 @@ au!
 autocmd TabLeave * call Setlasttabpagevisited()
 augroup END
 autocmd VimEnter * let g:ltv = 1
+
+""" For plugins
+" gundo
+noremap ,u :GundoToggle<CR>
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Colors and syntax
