@@ -66,6 +66,22 @@ set scrolloff=2                 " always have 2 lines of context on the screen
 " Swaps selection with buffer
 vnoremap <C-X> <Esc>`.``gvP``P
 
+" -/= to navigate tabs
+noremap - :tabprevious<CR>
+noremap = :tabnext<CR>
+
+" Bind gb to toggle between the last two tabs
+map gb :exe "tabn ".g:ltv<CR>
+function! Setlasttabpagevisited()
+    let g:ltv = tabpagenr()
+endfunction
+
+augroup localtl
+au!
+autocmd TabLeave * call Setlasttabpagevisited()
+augroup END
+autocmd VimEnter * let g:ltv = 1
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Colors and syntax
 " in GUI or color console, enable coloring and search highlighting
