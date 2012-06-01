@@ -3,13 +3,11 @@
 " vim mode preferred!
 set nocompatible
 
-" if we're in screen, vim doesn't know wtf it's doing with a lot of keycodes.
-" so tell it we're in xterm, instead.  also, tweak title so it will change the
-" screen window's title to something minimal and useful
+" set xterm title, and inform vim of screen/tmux's syntax for doing the same
+set titlestring=vim\ %{expand(\"%t\")}
 if &term =~ "^screen"
-  set titlestring=vim\ %{expand(\"%t\")}
-  set t_ts=k
-  set t_fs=\
+    set t_ts=k
+    set t_fs=\
 endif
 set title
 

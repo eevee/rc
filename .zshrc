@@ -60,11 +60,11 @@ WORDCHARS=${WORDCHARS//[&.;\/]}
 
 ### Prompt
 
-PROMPT="%{$fg_bold[green]%}%n@%m%{$reset_color%} %{$fg_bold[blue]%}%~%{$reset_color%} %(!.☭.⚘) "
+PROMPT="%{%(!.$fg_bold[red].$fg_bold[green])%}%n@%m%{$reset_color%} %{$fg_bold[blue]%}%~%{$reset_color%} %(!.☭.⚘) "
 RPROMPT_code="%(?..\$? %{$fg_no_bold[red]%}%?%{$reset_color%}  )"
 RPROMPT_jobs="%1(j.%%# %{$fg_no_bold[cyan]%}%j%{$reset_color%}  .)"
 RPROMPT_time="%{$fg_bold[black]%}%*%{$reset_color%}"
-RPROMPT="$RPROMPT_code$RPROMPT_jobs$RPROMPT_time"
+RPROMPT=$RPROMPT_code$RPROMPT_jobs$RPROMPT_time
 
 
 ### Misc aliases
@@ -143,7 +143,7 @@ function title {
 
     # Set xterm window title
     if [[ $TERM == "xterm"* || $TERM == "screen"* ]]; then
-        print -n "\e]0;$prefix$1\a"
+        print -n "\e]2;$prefix$1\a"
     fi
 }
 
