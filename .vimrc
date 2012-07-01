@@ -88,6 +88,11 @@ call pathogen#helptags()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Bindings
+" Stuff that clobbers default bindings
+" Force ^U and ^W in insert mode to start a new undo group
+inoremap <c-u> <c-g>u<c-u>
+inoremap <c-w> <c-g>u<c-w>
+
 " Leader
 let mapleader = ","
 let g:mapleader = ","
