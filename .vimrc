@@ -14,17 +14,27 @@ set title
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
-" backups
+" backups and other junky files
 set nobackup                    " backups are annoying
 set writebackup                 " temp backup during write
 " TODO: backupdir?
+set undodir=~/.vim/undo         " persistent undo storage
+set undofile                    " persistent undo on
+
+" user interface
 set history=50                  " keep 50 lines of command line history
+set laststatus=2                " always show status line
+set lazyredraw                  " don't update screen inside macros, etc
+set matchtime=2                 " ms to show the matching paren for showmatch
+set number                      " line numbers
 set ruler                       " show the cursor position all the time
 set showcmd                     " display incomplete commands
+set showmatch                   " show matching brackets while typing
+
+" regexes
 set incsearch                   " do incremental searching
 set ignorecase                  " useful more often than not
 set smartcase                   " case-sens when capital letters
-set number                      " line numbers
 
 " whitespace
 set autoindent                  " keep indenting on <CR>
@@ -34,6 +44,12 @@ set expandtab                   " never use hard tabs
 set fileformats=unix,dos        " unix linebreaks in new files please
 set listchars=tab:→·,extends:>,precedes:<,nbsp:␠,trail:␠
                                 " appearance of invisible characters
+
+" wrapping
+"set colorcolumn=+1              " highlight 81st column
+set linebreak                   " break on what looks like boundaries
+set showbreak=↳\                " shown at the start of a wrapped line
+"set textwidth=80                " wrap after 80 columns
 
 
 " gui stuff
@@ -56,6 +72,7 @@ set wildignore+=.*.sw*,__pycache__,*.pyc
                                 " ignore junk files
 
 " miscellany
+set autoread                    " reload changed files
 set scrolloff=2                 " always have 2 lines of context on the screen
 set foldmethod=indent           " auto-fold based on indentation.  (py-friendly)
 set foldlevel=99
@@ -71,6 +88,10 @@ call pathogen#helptags()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Bindings
+" Leader
+let mapleader = ","
+let g:mapleader = ","
+
 " Swaps selection with buffer
 vnoremap <C-X> <Esc>`.``gvP``P
 
@@ -132,7 +153,8 @@ endif " has("autocmd")
 let python_highlight_all = 1
 let python_slow_sync = 1
 
-" trailing whitespace; must define AFTER colorscheme, setf, etc!
+" trailing whitespace and column; must define AFTER colorscheme, setf, etc!
+hi ColorColumn ctermbg=black guibg=darkgray
 hi WhitespaceEOL ctermbg=red guibg=red
 match WhitespaceEOL /\s\+\%#\@<!$/
 
