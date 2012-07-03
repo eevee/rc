@@ -44,10 +44,10 @@ compinit
 
 
 ### History
-setopt extended_history hist_no_store hist_ignore_dups inc_append_history
+setopt extended_history hist_no_store hist_ignore_dups hist_expire_dups_first hist_find_no_dups inc_append_history share_history hist_reduce_blanks hist_ignore_space
 export HISTFILE=~/.zsh_history
-export HISTSIZE=2000
-export SAVEHIST=2000
+export HISTSIZE=1000000
+export SAVEHIST=1000000
 
 
 ### Some..  options
