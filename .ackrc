@@ -1,3 +1,6 @@
+--type-set
+mako=.mako
+
 # Sort the list of files before searching; slower, but deterministic and human-friendly
 --sort-files
 
