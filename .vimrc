@@ -8,6 +8,14 @@ set titlestring=vim\ %{expand(\"%t\")}
 if &term =~ "^screen"
     set t_ts=k
     set t_fs=\
+
+    " pretend this is xterm.  it probably is anyway, but if term is left as
+    " `screen`, vim doesn't understand ctrl-arrow.
+    if &term == "screen-256color"
+        set term=xterm-256color
+    else
+        set term=xterm
+    endif
 endif
 set title
 
