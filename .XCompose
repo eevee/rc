@@ -67,8 +67,8 @@ include "%L"
 <Multi_key> <X> <X> : "✗" U2717 # ballot X — <x> <x> taken by Xorg for multiply
 
 # MATH
-<Multi_key> <tilde> <tilde>                 : "≈" U2248
-<Multi_key> <exclam> <tilde> <tilde>        : "≉" U2249
+<Multi_key> <asciitilde> <asciitilde>       : "≈" U2248
+<Multi_key> <exclam> <asciitilde> <asciitilde> : "≉" U2249
 <Multi_key> <slash> <equal>                 : "≠" U2248
 <Multi_key> <equal> <slash>                 : "≠" U2248
 <Multi_key> <exclam> <equal>                : "≠" U2260
@@ -77,7 +77,7 @@ include "%L"
 <Multi_key> <exclam> <less>                 : "≮" U226E
 <Multi_key> <exclam> <greater>              : "≯" U226F
 <Multi_key> <equal> <equal>                 : "≡" U2261
-<Multi_key> <tilde> <equal>                 : "≅" U2245
+<Multi_key> <asciitilde> <equal>            : "≅" U2245
 <Multi_key> <parenleft> <minus>             : "∈" U2208
 <Multi_key> <parenleft> <slash> <minus>     : "∉" U2209
 <Multi_key> <exclam> <parenleft> <minus>    : "∉" U2209
