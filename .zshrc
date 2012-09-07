@@ -57,6 +57,9 @@ unsetopt notify
 # Don't count common path separators as word characters
 WORDCHARS=${WORDCHARS//[&.;\/]}
 
+# Words cannot express how fucking sweet this is
+REPORTTIME=5
+
 
 ### Prompt
 
