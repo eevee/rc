@@ -39,6 +39,8 @@ set number                      " line numbers
 set ruler                       " show the cursor position all the time
 set showcmd                     " display incomplete commands
 set showmatch                   " show matching brackets while typing
+set relativenumber              " line numbers spread out from 0
+set cursorline                  " highlight current line
 
 " regexes
 set incsearch                   " do incremental searching
@@ -96,6 +98,10 @@ call pathogen#helptags()
 
 " SuperTab; use omni completion by default
 let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
+
+" Python-mode; linting is kind of annoying, so tame it
+let g:pymode_lint_checker = "pyflakes"
+let g:pymode_lint_cwindow = 0
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -172,6 +178,7 @@ hi WhitespaceEOL ctermbg=red guibg=red
 match WhitespaceEOL /\s\+\%#\@<!$/
 
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Last but not least, allow for local overrides
 if filereadable(expand("~/.vimrc.local"))
     source ~/.vimrc.local
