@@ -94,6 +94,9 @@ filetype off  " uh, necessary
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
+" SuperTab; use omni completion by default
+let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Bindings
@@ -162,10 +165,6 @@ if has("autocmd")
     \   exe "normal g`\"" |
     \ endif
 endif " has("autocmd")
-
-""" Syntax options for particular languages
-let python_highlight_all = 1
-let python_slow_sync = 1
 
 " trailing whitespace and column; must define AFTER colorscheme, setf, etc!
 hi ColorColumn ctermbg=black guibg=darkgray
