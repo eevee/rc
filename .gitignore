@@ -1,0 +1,2 @@
+# Everything in the undo dir; only care that it exists
+.vim/undo
