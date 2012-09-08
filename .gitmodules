@@ -1,6 +1,3 @@
-[submodule ".vim/bundle/snipmate"]
-	path = .vim/bundle/snipmate
-	url = https://github.com/msanders/snipmate.vim.git
 [submodule ".vim/bundle/mw-utils"]
 	path = .vim/bundle/mw-utils
 	url = https://github.com/MarcWeber/vim-addon-mw-utils
