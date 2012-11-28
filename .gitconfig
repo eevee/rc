@@ -1,6 +1,6 @@
 [user]
     name = Eevee
-    email = git@veekun.com
+    email = eevee.git@veekun.com
 
 [merge]
     conflictstyle = diff3
