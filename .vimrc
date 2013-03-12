@@ -103,6 +103,9 @@ let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 let g:pymode_lint_checker = "pyflakes"
 let g:pymode_lint_cwindow = 0
 
+" Powerline; uses its own runtime stuff
+set runtimepath+=~/.vim/bundle/powerline/powerline/bindings/vim
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Bindings
