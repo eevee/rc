@@ -106,6 +106,9 @@ let g:pymode_lint_cwindow = 0
 " Powerline; uses its own runtime stuff
 set runtimepath+=~/.vim/bundle/powerline/powerline/bindings/vim
 
+" Ctrl-P settings
+let g:ctrlp_custom_ignore = { 'dir': '\v[\/](build|[.]git)$' }
+let g:ctrlp_max_files = 50000   " i work on a project with a lot of files.
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Bindings
