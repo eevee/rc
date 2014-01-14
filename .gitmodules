@@ -31,3 +31,6 @@
 [submodule ".vim/bundle/characterize"]
 	path = .vim/bundle/characterize
 	url = https://github.com/tpope/vim-characterize
+[submodule ".vim/bundle/markdown"]
+	path = .vim/bundle/markdown
+	url = https://github.com/tpope/vim-markdown
