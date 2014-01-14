@@ -28,3 +28,6 @@
 [submodule ".vim/bundle/rust"]
 	path = .vim/bundle/rust
 	url = https://github.com/wting/rust.vim
+[submodule ".vim/bundle/characterize"]
+	path = .vim/bundle/characterize
+	url = https://github.com/tpope/vim-characterize
