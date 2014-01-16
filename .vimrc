@@ -98,8 +98,12 @@ filetype off  " uh, necessary
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
-" SuperTab; use omni completion by default
-let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
+" SuperTab and tab completion; use omni completion but
+"let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
+set omnifunc=syntaxcomplete#Complete
+autocmd FileType *
+    \ call SuperTabChain(&omnifunc, "<c-p>") |
+    \ call SuperTabSetDefaultCompletionType("<c-x><c-u>")
 
 " Python-mode; linting is kind of annoying, so tame it
 let g:pymode_lint_checker = "pyflakes"
