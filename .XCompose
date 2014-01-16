@@ -40,6 +40,7 @@ include "%L"
 <Multi_key> <less> <period>      	    : "‹" U2039
 <Multi_key> <bar> <bar>                     : "¦" brokenbar
 <Multi_key> <plus> <bar>                    : "†" U2020
+<Multi_key> <n> <l>                         : "␤" U2424
 ## Conflicts with X sequence for # ASCII hash
 <Multi_key> <plus> <plus>                   : "‡" U2021
 <Multi_key> <asterisk> <3>                  : "⁂" U2042
