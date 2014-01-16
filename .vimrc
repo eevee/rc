@@ -154,6 +154,9 @@ autocmd TabLeave * call Setlasttabpagevisited()
 augroup END
 autocmd VimEnter * let g:ltv = 1
 
+" Abbreviation to make `:e %%/...` edit in same directory
+cabbr <expr> %% expand('%:.:h')
+
 """ For plugins
 " gundo
 noremap ,u :GundoToggle<CR>
