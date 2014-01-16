@@ -72,6 +72,8 @@ RPROMPT=$RPROMPT_code$RPROMPT_jobs$RPROMPT_time
 
 ### Misc aliases
 
+export PAGER='less -SF'
+
 if whence ack-grep &> /dev/null; then
     alias ack=ack-grep
 fi
