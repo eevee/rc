@@ -87,6 +87,8 @@ set autoread                    " reload changed files
 set scrolloff=2                 " always have 2 lines of context on the screen
 set foldmethod=indent           " auto-fold based on indentation.  (py-friendly)
 set foldlevel=99
+set timeoutlen=1000             " wait 1s for mappings to finish
+set ttimeoutlen=100             " wait 0.1s for xterm keycodes to finish
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -103,8 +105,9 @@ let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 let g:pymode_lint_checker = "pyflakes"
 let g:pymode_lint_cwindow = 0
 
-" Powerline; uses its own runtime stuff
-set runtimepath+=~/.vim/bundle/powerline/powerline/bindings/vim
+" Airline; use powerline-style glyphs and colors
+let g:airline_powerline_fonts = 1
+let g:airline_theme='powerlineish'
 
 " Ctrl-P settings
 let g:ctrlp_custom_ignore = { 'dir': '\v[\/](build|[.]git)$' }
