@@ -1,3 +1,6 @@
+[core]
+    pager = less -SR
+
 [user]
     name = Eevee (Alex Munroe)
     email = eevee.git@veekun.com

@@ -72,7 +72,10 @@ RPROMPT=$RPROMPT_code$RPROMPT_jobs$RPROMPT_time
 
 ### Misc aliases
 
-export PAGER='less -SF'
+export PAGER=less
+# Never wrap long lines by default
+# I'd love to have the effect of -F, but I don't want -X all the time, alas.
+export LESS=S
 
 if whence ack-grep &> /dev/null; then
     alias ack=ack-grep
