@@ -31,7 +31,7 @@ set undodir=~/.vim/undo         " persistent undo storage
 set undofile                    " persistent undo on
 
 " user interface
-set history=50                  " keep 50 lines of command line history
+set history=1000                " remember command mode history
 set laststatus=2                " always show status line
 set lazyredraw                  " don't update screen inside macros, etc
 set matchtime=2                 " ms to show the matching paren for showmatch
@@ -41,6 +41,7 @@ set showcmd                     " display incomplete commands
 set showmatch                   " show matching brackets while typing
 set relativenumber              " line numbers spread out from 0
 set cursorline                  " highlight current line
+set display=lastline,uhex       " show last line even if too long; use <xx>
 
 " regexes
 set incsearch                   " do incremental searching
@@ -52,8 +53,10 @@ set autoindent                  " keep indenting on <CR>
 set shiftwidth=4                " one tab = four spaces (autoindent)
 set softtabstop=4               " one tab = four spaces (tab key)
 set expandtab                   " never use hard tabs
+set shiftround                  " only indent to multiples of shiftwidth
+set smarttab                    " DTRT when shiftwidth/softtabstop diverge
 set fileformats=unix,dos        " unix linebreaks in new files please
-set listchars=tab:↹·,extends:>,precedes:<,nbsp:␠,trail:␠
+set listchars=tab:↹·,extends:⇉,precedes:⇇,nbsp:␠,trail:␠,nbsp:␣
                                 " appearance of invisible characters
 
 " wrapping
@@ -81,6 +84,8 @@ set wildmenu                    " show a menu of completions like zsh
 set wildmode=full               " complete longest common prefix first
 set wildignore+=.*.sw*,__pycache__,*.pyc
                                 " ignore junk files
+set complete-=i                 " don't try to tab-complete #included files
+set completeopt-=preview        " preview window is super annoying
 
 " miscellany
 set autoread                    " reload changed files
@@ -89,6 +94,7 @@ set foldmethod=indent           " auto-fold based on indentation.  (py-friendly)
 set foldlevel=99
 set timeoutlen=1000             " wait 1s for mappings to finish
 set ttimeoutlen=100             " wait 0.1s for xterm keycodes to finish
+set nrformats-=octal            " don't try to auto-increment 'octal'
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
