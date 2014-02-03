@@ -114,6 +114,12 @@ autocmd FileType *
 " Python-mode; linting is kind of annoying, so tame it
 let g:pymode_lint_checker = "pyflakes"
 let g:pymode_lint_cwindow = 0
+" Rope is fucking idiotic and keeps recursively reading my entire home
+" directory.  This at least tells it not to search upwards looking for a
+" .ropeproject marker.
+let g:pymode_rope_lookup_project = 0
+" This is pretty fucking annoying too
+let g:pymode_rope_complete_on_dot = 1
 
 " Airline; use powerline-style glyphs and colors
 let g:airline_powerline_fonts = 1
@@ -121,7 +127,12 @@ let g:airline_theme='powerlineish'
 
 " Ctrl-P settings
 let g:ctrlp_custom_ignore = { 'dir': '\v[\/](build|[.]git)$' }
-let g:ctrlp_max_files = 50000   " i work on a project with a lot of files.
+" Try to tame it a bit on very large projects
+let g:ctrlp_max_files = 50000
+let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_dotfiles = 1
+let g:ctrlp_lazy_update = 100
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Bindings
