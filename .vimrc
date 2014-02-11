@@ -119,7 +119,7 @@ let g:pymode_lint_cwindow = 0
 " .ropeproject marker.
 let g:pymode_rope_lookup_project = 0
 " This is pretty fucking annoying too
-let g:pymode_rope_complete_on_dot = 1
+let g:pymode_rope_complete_on_dot = 0
 
 " Airline; use powerline-style glyphs and colors
 let g:airline_powerline_fonts = 1
