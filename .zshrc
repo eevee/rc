@@ -70,7 +70,7 @@ RPROMPT_time="%{$fg_bold[black]%}%*%{$reset_color%}"
 RPROMPT=$RPROMPT_code$RPROMPT_jobs$RPROMPT_time
 
 
-### Misc aliases
+### Misc environment and alias stuff
 
 export PAGER=less
 # Never wrap long lines by default
@@ -89,6 +89,9 @@ for command in find wget; \
 
 # rvm
 [[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
+
+# reconnect ssh socket in an existing tmux session
+alias fixssh='export $(tmux show-environment | grep \^SSH_AUTH_SOCK=)'
 
 
 ### ls
@@ -113,7 +116,7 @@ alias ls="ls $LSOPTS"
 alias ll="ls $LLOPTS | less -FX"
 
 
-### screen
+### screen (and tmux's screen-compatible title support)
 
 function title {
     # param: title to use
