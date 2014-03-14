@@ -72,12 +72,6 @@ RPROMPT=$RPROMPT_code$RPROMPT_jobs$RPROMPT_time
 
 ### Misc environment and alias stuff
 
-export PAGER=less
-# Never wrap long lines by default
-# Show current line numbers
-# I'd love to have the effect of -F, but I don't want -X all the time, alas.
-export LESS=SM
-
 if whence ack-grep &> /dev/null; then
     alias ack=ack-grep
 fi
