@@ -85,7 +85,16 @@ for command in find wget; \
 [[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
 
 # reconnect ssh socket in an existing tmux session
-alias fixssh='export $(tmux show-environment | grep \^SSH_AUTH_SOCK=)'
+function fixssh {
+    # split on newlines.  double-quotes prevent splitting the command sub?
+    # unsure why that's necessary here but not anywhere else though.
+    for line in "${(f)$(tmux show-environment)}"; do
+        if [[ $line =~ '^SSH_\w+=' ]]; then
+            echo export $line
+            export $line
+        fi
+    done
+}
 
 
 ### ls
