@@ -51,7 +51,7 @@ export SAVEHIST=1000000
 
 
 ### Some..  options
-setopt autocd beep extendedglob nomatch
+setopt autocd beep extendedglob nomatch rc_quotes
 unsetopt notify
 
 # Don't count common path separators as word characters
