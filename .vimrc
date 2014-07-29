@@ -111,9 +111,22 @@ autocmd FileType *
     \ call SuperTabChain(&omnifunc, "<c-p>") |
     \ call SuperTabSetDefaultCompletionType("<c-x><c-u>")
 
-" Python-mode; linting is kind of annoying, so tame it
-let g:pymode_lint_checker = "pyflakes"
-let g:pymode_lint_cwindow = 0
+" Syntastic
+" Don't bother flaking on :wq because I won't even see it!
+let g:syntastic_check_on_wq = 0
+" Only use flake8 for Python -- running `python` itself may or may not work
+" because versions, and pylint is a beast
+let g:syntastic_python_checkers = ['flake8']
+" Stupid Unicode tricks
+let g:syntastic_error_symbol = "☠"
+let g:syntastic_warning_symbol = "⚠"
+let g:syntastic_style_error_symbol = "☢"
+let g:syntastic_style_warning_symbol = "☹"
+
+" Python-mode; disable linting, use syntastic
+let g:pymode_lint = 0
+" Aaand the rope stuff conflicts with jedi, surprise
+let g:pymode_rope = 0
 " Rope is fucking idiotic and keeps recursively reading my entire home
 " directory.  This at least tells it not to search upwards looking for a
 " .ropeproject marker.
@@ -183,7 +196,7 @@ noremap ,u :GundoToggle<CR>
 " Colors and syntax
 " in GUI or color console, enable coloring and search highlighting
 if &t_Co > 2 || has("gui_running")
-  syntax on
+  syntax enable
   set background=dark
   set hlsearch
 endif
