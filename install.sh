@@ -2,6 +2,18 @@
 
 set -e
 
+local here=$(dirname $0)
+for file in .XCompose .ackrc .gitconfig .psqlrc .screenrc .tmux.conf .vimrc .vim .zshenv .zshrc; do
+    if [[ $file == '.gitconfig' && $USER != 'eevee' && $USER != 'amunroe' ]]; then
+        echo "not linking $file, it has my name in it!  do it yourself"
+    else
+        if [[ $(readlink -f $HOME/$file) != $(readlink -f $here/$file) ]]; then
+            ln -i -s -T $here/$file $HOME/$file
+            echo "linked $file"
+        fi
+    fi
+done
+
 # airline (powerline) font stuff
 if whence fc-cache > /dev/null; then
     echo 'installing powerline font'
