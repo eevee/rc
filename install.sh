@@ -2,6 +2,10 @@
 
 set -e
 
+echo 'updating submodules'
+git submodule update --init
+
+echo 'linking stuff'
 local here=$(dirname $0)
 for file in .XCompose .ackrc .gitconfig .psqlrc .screenrc .tmux.conf .vimrc .vim .zshenv .zshrc; do
     if [[ $file == '.gitconfig' && $USER != 'eevee' && $USER != 'amunroe' ]]; then
