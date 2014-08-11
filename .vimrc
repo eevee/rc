@@ -104,7 +104,8 @@ filetype off  " uh, necessary
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
-" SuperTab and tab completion; use omni completion but
+" SuperTab and tab completion; use omni completion but fall back to completion
+" based on the current buffer's syntax keywords
 "let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 set omnifunc=syntaxcomplete#Complete
 autocmd FileType *
@@ -149,6 +150,7 @@ let g:ctrlp_lazy_update = 100
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Bindings
+
 " Stuff that clobbers default bindings
 " Force ^U and ^W in insert mode to start a new undo group
 inoremap <c-u> <c-g>u<c-u>
@@ -179,8 +181,8 @@ function! Setlasttabpagevisited()
 endfunction
 
 augroup localtl
-au!
-autocmd TabLeave * call Setlasttabpagevisited()
+    autocmd!
+    autocmd TabLeave * call Setlasttabpagevisited()
 augroup END
 autocmd VimEnter * let g:ltv = 1
 
@@ -190,6 +192,51 @@ cabbr <expr> %% expand('%:.:h')
 """ For plugins
 " gundo
 noremap ,u :GundoToggle<CR>
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Miscellaneous autocmds
+
+" Automatically delete swapfiles older than the actual file.
+" Look at this travesty.  vim already has this information but doesn't expose
+" it, so I have to reparse the swap file.  Ugh.
+function! s:SwapDecide()
+python << endpython
+import os
+import struct
+
+import vim
+
+# Format borrowed from:
+# https://github.com/nyarly/Vimrc/blob/master/swapfile_parse.rb
+SWAPFILE_HEADER = "=BB10sLLLL40s40s898scc"
+size = struct.calcsize(SWAPFILE_HEADER)
+with open(vim.eval('v:swapname'), 'rb') as f:
+    buf = f.read(size)
+(
+    id0, id1, vim_version, pagesize, writetime,
+    inode, pid, uid, host, filename, flags, dirty
+) = struct.unpack(SWAPFILE_HEADER, buf)
+
+try:
+    # Test whether the pid still exists.  Could get fancy and check its name
+    # or owning uid but :effort:
+    os.kill(pid, 0)
+except OSError:
+    # NUL means clean, \x55 (U) means dirty.  Yeah I don't know either.
+    if dirty == b'\x00':
+        # Appears to be from a crash, so just nuke it
+        vim.command('let v:swapchoice = "d"')
+
+endpython
+endfunction
+
+if has("python")
+    augroup eevee_swapfile
+        autocmd!
+        autocmd SwapExists * call s:SwapDecide()
+    augroup END
+endif
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
