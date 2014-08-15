@@ -124,6 +124,14 @@ let g:syntastic_warning_symbol = "⚠"
 let g:syntastic_style_error_symbol = "☢"
 let g:syntastic_style_warning_symbol = "☹"
 
+" Jedi
+" this doesn't fly with the yelp codebase
+let g:jedi#popup_on_dot = 0
+" messing with my completeopt is super rude
+let g:jedi#auto_vim_configuration = 0
+" signatures are kind of annoying and unusably slow in a big codebase
+let g:jedi#show_call_signatures = 0
+
 " Python-mode; disable linting, use syntastic
 let g:pymode_lint = 0
 " Aaand the rope stuff conflicts with jedi, surprise
@@ -269,6 +277,12 @@ endif " has("autocmd")
 hi ColorColumn ctermbg=black guibg=darkgray
 hi WhitespaceEOL ctermbg=red guibg=red
 match WhitespaceEOL /\s\+\%#\@<!$/
+
+" molokai's diff coloring is terrible
+highlight DiffAdd    ctermbg=22
+highlight DiffDelete ctermbg=52
+highlight DiffChange ctermbg=17
+highlight DiffText   ctermbg=53
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
