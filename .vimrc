@@ -179,8 +179,8 @@ noremap <C-Up> <C-W><Up>
 noremap <C-Down> <C-W><Down>
 
 " -/= to navigate tabs
-noremap - :tabprevious<CR>
-noremap = :tabnext<CR>
+nnoremap - :tabprevious<CR>
+nnoremap = :tabnext<CR>
 
 " Bind gb to toggle between the last two tabs
 map gb :exe "tabn ".g:ltv<CR>
