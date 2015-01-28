@@ -228,6 +228,21 @@ bindkey "\eOA" up-line-or-local-history
 bindkey "\e[B" down-line-or-local-history
 bindkey "\eOB" down-line-or-local-history
 
+page-up-within-tmux() {
+    if [[ $TMUX == '' ]]; then
+        # no-op; default behavior isn't useful, and anyway you don't want to do
+        # something TOO cool here since you won't be able to do it inside tmux.
+        # TODO if there's any way to command the /emu/ to scroll up one page, i
+        # would love to hear about it
+    else
+        tmux copy-mode -u
+    fi
+}
+zle -N page-up-within-tmux
+
+# page up
+bindkey "${terminfo[kpp]}" page-up-within-tmux
+
 
 ### Machine-specific extras
 
