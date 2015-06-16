@@ -1,2 +1,4 @@
-# Everything in the undo dir; only care that it exists
+# Everything in the vim junk dirs; only care that they exist
+.vim/backup
 .vim/undo
+.vim/swap

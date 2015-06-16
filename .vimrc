@@ -24,9 +24,9 @@ set title
 set backspace=indent,eol,start
 
 " backups and other junky files
-set nobackup                    " backups are annoying
+set backupdir=~/.vim/backup     " get backups outta here
+set directory=~/.vim/swap       " get swapfiles outta here
 set writebackup                 " temp backup during write
-" TODO: backupdir?
 set undodir=~/.vim/undo         " persistent undo storage
 set undofile                    " persistent undo on
 
@@ -109,9 +109,7 @@ set nrformats-=octal            " don't try to auto-increment 'octal'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins
 " Pathogen; load all bundles
-filetype off  " uh, necessary
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
+call pathogen#infect()
 
 " SuperTab and tab completion; use omni completion but fall back to completion
 " based on the current buffer's syntax keywords
