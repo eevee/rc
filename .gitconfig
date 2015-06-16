@@ -8,11 +8,6 @@
 [merge]
     conflictstyle = diff3
 
-[color]
-    ui = true
-    branch = auto
-    diff = auto
-    status = auto
 [color "branch"]
     current = yellow reverse
     local = yellow
