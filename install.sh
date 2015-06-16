@@ -3,7 +3,10 @@
 set -e
 
 echo 'updating submodules'
-git submodule update --init
+git submodule update --init --recursive
+
+echo 'please hold while i build YouCompleteMe'
+( cd .vim/bundle/YouCompleteMe; ./install.sh --clang-completer )
 
 echo 'linking stuff'
 local here=$(dirname $0)
