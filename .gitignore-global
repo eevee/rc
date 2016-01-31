@@ -1,0 +1,12 @@
+# KDE's directory settings file
+.directory
+
+# vim cruft
+.*.sw*
+
+# Python build artifacts
+*.pyc
+*.pyo
+__pycache__/
+*.egg-info/
+.ropeproject/

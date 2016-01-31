@@ -1,4 +1,5 @@
 [core]
+    excludesfile = ~/.gitignore-global
     pager = less -SR
 
 [user]
