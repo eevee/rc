@@ -154,6 +154,10 @@ endif
 nnoremap <silent> <c-p> :Denite file_rec<cr>
 nnoremap <silent> g/ :Denite grep<cr>
 
+" YouCompleteMe
+" Search PATH to find the right Python, so that it works in a Python 2 venv
+let g:ycm_python_binary_path = 'python'
+
 " ALE (linter)
 " Only use flake8 for Python, because pylint is huge and impossible to appease
 let g:ale_linters = {
