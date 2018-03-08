@@ -37,15 +37,15 @@
 [submodule ".vim/bundle/vim-commentary"]
 	path = .vim/bundle/vim-commentary
 	url = https://github.com/tpope/vim-commentary.git
-[submodule ".vim/bundle/vim-inform7"]
-	path = .vim/bundle/vim-inform7
-	url = https://github.com/lesliev/vim-inform7.git
-[submodule ".vim/bundle/vim-sleuth"]
-	path = .vim/bundle/vim-sleuth
-	url = https://github.com/tpope/vim-sleuth.git
 [submodule ".vim/bundle/YouCompleteMe"]
 	path = .vim/bundle/YouCompleteMe
 	url = https://github.com/Valloric/YouCompleteMe
 [submodule ".vim/bundle/denite"]
 	path = .vim/bundle/denite
 	url = https://github.com/Shougo/denite.nvim
+[submodule ".vim/bundle/vim-sleuth"]
+	path = .vim/bundle/vim-sleuth
+	url = https://github.com/tpope/vim-sleuth.git
+[submodule ".vim/bundle/vim-inform7"]
+	path = .vim/bundle/vim-inform7
+	url = https://github.com/lesliev/vim-inform7.git
