@@ -154,20 +154,23 @@ endif
 nnoremap <silent> <c-p> :Denite file_rec<cr>
 nnoremap <silent> g/ :Denite grep<cr>
 
-" Syntastic
-" Don't bother flaking on :wq because I won't even see it!
-let g:syntastic_check_on_wq = 0
-" Only use flake8 for Python -- running `python` itself may or may not work
-" because versions, and pylint is a beast
-let g:syntastic_python_checkers = ['flake8']
+" ALE (linter)
+" Only use flake8 for Python, because pylint is huge and impossible to appease
+let g:ale_linters = {
+\ 'python': ['flake8'],
+\}
 " Stupid Unicode tricks
-let g:syntastic_error_symbol = "☠"
-let g:syntastic_warning_symbol = "⚠"
-let g:syntastic_style_error_symbol = "☢"
-let g:syntastic_style_warning_symbol = "☹"
+let g:ale_sign_info = "🚩"
+let g:ale_sign_warning = "🚨"
+let g:ale_sign_error = "💥"
+let g:ale_sign_style_warning = "💈"  " get it?  /style/ issues?  wow tough crowd
+let g:ale_sign_style_error = "🚨"
 
 " Airline; use powerline-style glyphs and colors
 let g:airline_powerline_fonts = 1
+" ALE
+let g:airline#extensions#ale#error_symbol = "🚨"
+let g:airline#extensions#ale#warning_symbol = "🚩"
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

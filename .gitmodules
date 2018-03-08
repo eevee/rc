@@ -22,9 +22,6 @@
 [submodule ".vim/bundle/vim-airline"]
 	path = .vim/bundle/vim-airline
 	url = https://github.com/bling/vim-airline
-[submodule ".vim/bundle/syntastic"]
-	path = .vim/bundle/syntastic
-	url = https://github.com/scrooloose/syntastic.git
 [submodule ".vim/bundle/vim-unimpaired"]
 	path = .vim/bundle/vim-unimpaired
 	url = https://github.com/tpope/vim-unimpaired.git
@@ -55,3 +52,6 @@
 [submodule ".vim/bundle/tmux-focus-events"]
 	path = .vim/bundle/tmux-focus-events
 	url = https://github.com/tmux-plugins/vim-tmux-focus-events
+[submodule ".vim/bundle/ale"]
+	path = .vim/bundle/ale
+	url = https://github.com/w0rp/ale
