@@ -144,14 +144,6 @@ endif
 nnoremap <silent> <c-p> :Denite file_rec<cr>
 nnoremap <silent> g/ :Denite grep<cr>
 
-" SuperTab and tab completion; use omni completion but fall back to completion
-" based on the current buffer's syntax keywords
-"let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
-set omnifunc=syntaxcomplete#Complete
-autocmd FileType *
-    \ call SuperTabChain(&omnifunc, "<c-p>") |
-    \ call SuperTabSetDefaultCompletionType("<c-x><c-u>")
-
 " Syntastic
 " Don't bother flaking on :wq because I won't even see it!
 let g:syntastic_check_on_wq = 0
@@ -163,25 +155,6 @@ let g:syntastic_error_symbol = "☠"
 let g:syntastic_warning_symbol = "⚠"
 let g:syntastic_style_error_symbol = "☢"
 let g:syntastic_style_warning_symbol = "☹"
-
-" Jedi
-" this doesn't fly with the yelp codebase
-let g:jedi#popup_on_dot = 0
-" messing with my completeopt is super rude
-let g:jedi#auto_vim_configuration = 0
-" signatures are kind of annoying and unusably slow in a big codebase
-let g:jedi#show_call_signatures = 0
-
-" Python-mode; disable linting, use syntastic
-let g:pymode_lint = 0
-" Aaand the rope stuff conflicts with jedi, surprise
-let g:pymode_rope = 0
-" Rope is fucking idiotic and keeps recursively reading my entire home
-" directory.  This at least tells it not to search upwards looking for a
-" .ropeproject marker.
-let g:pymode_rope_lookup_project = 0
-" This is pretty fucking annoying too
-let g:pymode_rope_complete_on_dot = 0
 
 " Airline; use powerline-style glyphs and colors
 let g:airline_powerline_fonts = 1

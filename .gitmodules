@@ -7,12 +7,6 @@
 [submodule ".vim/bundle/ack"]
 	path = .vim/bundle/ack
 	url = https://github.com/mileszs/ack.vim
-[submodule ".vim/bundle/python-mode"]
-	path = .vim/bundle/python-mode
-	url = git://github.com/klen/python-mode.git
-[submodule ".vim/bundle/supertab"]
-	path = .vim/bundle/supertab
-	url = https://github.com/ervandew/supertab
 [submodule ".vim/bundle/gitgutter"]
 	path = .vim/bundle/gitgutter
 	url = https://github.com/airblade/vim-gitgutter
@@ -31,9 +25,6 @@
 [submodule ".vim/bundle/syntastic"]
 	path = .vim/bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
-[submodule ".vim/bundle/jedi-vim"]
-	path = .vim/bundle/jedi-vim
-	url = https://github.com/davidhalter/jedi-vim
 [submodule ".vim/bundle/vim-unimpaired"]
 	path = .vim/bundle/vim-unimpaired
 	url = https://github.com/tpope/vim-unimpaired.git
