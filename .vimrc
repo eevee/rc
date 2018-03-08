@@ -185,7 +185,6 @@ let g:pymode_rope_complete_on_dot = 0
 
 " Airline; use powerline-style glyphs and colors
 let g:airline_powerline_fonts = 1
-let g:airline_theme='powerlineish'
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
