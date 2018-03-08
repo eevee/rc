@@ -6,11 +6,12 @@ echo 'updating submodules'
 git submodule update --init --recursive
 
 echo 'please hold while i build YouCompleteMe'
-( cd .vim/bundle/YouCompleteMe; ./install.sh --clang-completer )
+# TERM=xterm works around https://github.com/mono/mono/issues/6752
+( cd .vim/bundle/YouCompleteMe; TERM=xterm ./install.py --clang-completer --cs-completer --rust-completer --js-completer )
 
 echo 'linking stuff'
 local here=$(dirname $0)
-for file in .XCompose .ackrc .gitconfig .psqlrc .screenrc .tmux.conf .vimrc .vim .zshenv .zshrc; do
+for file in .XCompose .ackrc .gitconfig .gitignore-global .psqlrc .screenrc .tmux.conf .vimrc .vim .zshenv .zshrc; do
     if [[ $file == '.gitconfig' && $USER != 'eevee' && $USER != 'amunroe' ]]; then
         echo "not linking $file, it has my name in it!  do it yourself"
     else
@@ -32,12 +33,4 @@ if whence fc-cache > /dev/null; then
     wget -O ~/.config/fontconfig/conf.d/10-powerline-symbols.conf https://github.com/Lokaltog/powerline/raw/develop/font/10-powerline-symbols.conf
 else
     echo 'no fontconfig found; skipping powerline font'
-fi
-
-# install flake8 with default python
-if whence pip > /dev/null; then
-    echo 'installing jedi'
-    pip install --user --upgrade jedi
-else
-    echo 'no pip found; skipping jedi (jedi-vim will probably not work!)'
 fi
