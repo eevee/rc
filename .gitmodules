@@ -21,7 +21,7 @@
 	url = https://github.com/airblade/vim-gitgutter
 [submodule ".vim/bundle/rust"]
 	path = .vim/bundle/rust
-	url = https://github.com/wting/rust.vim
+	url = https://github.com/rust-lang/rust.vim
 [submodule ".vim/bundle/characterize"]
 	path = .vim/bundle/characterize
 	url = https://github.com/tpope/vim-characterize
