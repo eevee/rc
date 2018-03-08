@@ -49,3 +49,6 @@
 [submodule ".vim/bundle/vim-inform7"]
 	path = .vim/bundle/vim-inform7
 	url = https://github.com/lesliev/vim-inform7.git
+[submodule ".vim/bundle/vim-renpy"]
+	path = .vim/bundle/vim-renpy
+	url = https://github.com/chaimleib/vim-renpy
