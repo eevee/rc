@@ -111,6 +111,39 @@ set nrformats-=octal            " don't try to auto-increment 'octal'
 " Pathogen; load all bundles
 call pathogen#infect()
 
+" Denite (searcher for files in the current dir, but also ag, buffers, ...)
+" Most of this comes straight from the documentation.
+" Use up/down to browse the suggestions
+" TODO i wish there were a "post-search" mode?  is that what normal mode is?
+call denite#custom#map('insert', '<Down>', '<denite:move_to_next_line>', 'noremap')
+call denite#custom#map('insert', '<Up>', '<denite:move_to_previous_line>', 'noremap')
+" TODO: cpsm?  ctrlp-based very fast file matching
+"call denite#custom#source( 'file_mru', 'matchers', ['matcher_fuzzy', 'matcher_project_files'])
+call denite#custom#option('default', 'prompt', '» ')
+call denite#custom#option('default', 'auto_resize', v:true)
+if executable('rg')
+	call denite#custom#var('file_rec', 'command', ['rg', '--files', '--glob', '!.git'])
+
+	call denite#custom#var('grep', 'command', ['rg'])
+	call denite#custom#var('grep', 'default_opts', ['--vimgrep', '--no-heading'])
+	call denite#custom#var('grep', 'recursive_opts', [])
+	call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
+	call denite#custom#var('grep', 'separator', ['--'])
+    call denite#custom#var('grep', 'final_opts', [])
+elseif executable('ag')
+	call denite#custom#var('file_rec', 'command', ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
+
+	call denite#custom#var('grep', 'command', ['ag'])
+	call denite#custom#var('grep', 'default_opts', ['-i', '--vimgrep'])
+	call denite#custom#var('grep', 'recursive_opts', [])
+	call denite#custom#var('grep', 'pattern_opt', [])
+	call denite#custom#var('grep', 'separator', ['--'])
+    call denite#custom#var('grep', 'final_opts', [])
+endif
+" TODO mappings for file_mru?  buffers?
+nnoremap <silent> <c-p> :Denite file_rec<cr>
+nnoremap <silent> g/ :Denite grep<cr>
+
 " SuperTab and tab completion; use omni completion but fall back to completion
 " based on the current buffer's syntax keywords
 "let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
@@ -153,14 +186,6 @@ let g:pymode_rope_complete_on_dot = 0
 " Airline; use powerline-style glyphs and colors
 let g:airline_powerline_fonts = 1
 let g:airline_theme='powerlineish'
-
-" Ctrl-P settings
-let g:ctrlp_custom_ignore = { 'dir': '\v[\/](build|[.]git)$' }
-" Try to tame it a bit on very large projects
-let g:ctrlp_max_files = 50000
-let g:ctrlp_clear_cache_on_exit = 0
-let g:ctrlp_dotfiles = 1
-let g:ctrlp_lazy_update = 100
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
