@@ -52,3 +52,6 @@
 [submodule ".vim/bundle/vim-renpy"]
 	path = .vim/bundle/vim-renpy
 	url = https://github.com/chaimleib/vim-renpy
+[submodule ".vim/bundle/tmux-focus-events"]
+	path = .vim/bundle/tmux-focus-events
+	url = https://github.com/tmux-plugins/vim-tmux-focus-events

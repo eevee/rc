@@ -97,7 +97,6 @@ set complete-=i                 " don't try to tab-complete #included files
 set completeopt-=preview        " preview window is super annoying
 
 " miscellany
-set autoread                    " reload changed files
 set scrolloff=2                 " always have 2 lines of context on the screen
 set foldmethod=indent           " auto-fold based on indentation.  (py-friendly)
 set foldlevel=99
@@ -105,6 +104,17 @@ set timeoutlen=1000             " wait 1s for mappings to finish
 set ttimeoutlen=100             " wait 0.1s for xterm keycodes to finish
 set nrformats-=octal            " don't try to auto-increment 'octal'
 
+set autoread                    " reload changed files
+" NOTE: 'autoread' seems to not check for changes very often; mostly after
+" doing a shell command and when focus is /lost/.  (My reading of the source
+" code suggests it ought to happen during a buffer switch, but vim in practice
+" disagrees?)  Even the 'focus lost' check — a strange choice — doesn't
+" actually work in a terminal!
+" So I use tmux's focus-events setting, the tmux-focus-events plugin, AND the
+" following autocommands to check for changes when gaining focus (from tmux's
+" point of view), when entering a buffer, and when idling.
+autocmd FocusGained * if mode() != 'c' | checktime | endif
+autocmd BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | execute 'checktime' expand("<abuf>") | endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins
