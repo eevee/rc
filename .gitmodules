@@ -55,3 +55,6 @@
 [submodule ".vim/bundle/ale"]
 	path = .vim/bundle/ale
 	url = https://github.com/w0rp/ale
+[submodule ".vim/bundle/rgbds"]
+	path = .vim/bundle/rgbds
+	url = https://github.com/EmmaEwert/vim-rgbds
